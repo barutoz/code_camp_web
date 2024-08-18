@@ -1,0 +1,18 @@
+version: '3'
+
+volumes:
+  node-modules:
+services:
+  app:
+    build:
+      context: .
+    container_name: geekcamp-web
+    ports:
+      - '12000:3000'
+    volumes:
+      - .:/app/
+      - node-modules:/app/node_modules
+    hostname: whaat
+    environment:
+      - WATCHPACK_POLLING=true
+    command: npm run dev
