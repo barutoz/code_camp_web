@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Web プロジェクト
 
-## Getting Started
+このプロジェクトは、Next.js、TypeScript、Chakra UI、およびStorybookを使用して構築されたWebアプリケーションです。
 
-First, run the development server:
+## 始め方
 
-```bash
+これらの手順に従って、開発環境でプロジェクトを起動し実行してください。
+
+### 前提条件
+
+- Node.js (バージョン14.0.0以上)
+- npm または yarn
+- NVM (Node Version Manager)
+
+### NVMのインストールと使用
+
+1. NVMをインストールします：
+
+   - macOSとLinux：
+     ```
+     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+     ```
+   - Windows：[nvm-windows](https://github.com/coreybutler/nvm-windows)をダウンロードしてインストールします。
+
+2. ターミナルを再起動するか、以下のコマンドを実行してNVMを有効にします：
+   source ~/.bashrc # または ~/.zshrc
+
+3. このプロジェクトで使用するNode.jsのバージョンをインストールします：
+   nvm install 20
+
+4. インストールしたバージョンを使用するように設定します：
+   nvm use 20
+
+### プロジェクトのセットアップ
+
+1. リポジトリをクローンします。
+2. プロジェクトディレクトリに移動します。
+3. 依存関係をインストールします：
+   npm install
+   Copyまたは
+   yarn install
+   Copy
+
+## 利用可能なスクリプト
+
+パッケージマネージャーとして`npm`または`yarn`を使用して、以下のスクリプトを実行できます：
+
+- `dev`: 開発サーバーを起動します（`http://localhost:3000`）
+- `build`: プロダクション用にアプリケーションをビルドします
+- `start`: プロダクションモードでアプリケーションを起動します
+- `lint`: ESLintを使用してコードをリントします
+- `typecheck`: TypeScriptの型チェックを実行します
+- `format`: Prettierを使用してソースコードをフォーマットします
+
+### 開発サーバーの起動
+
 npm run dev
-# or
+Copyまたは
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Copy
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Storybookの使用
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+このプロジェクトでは、UIコンポーネントの開発と文書化にStorybookを使用しています。
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Storybookの起動
 
-## Learn More
+npm run storybook
+Copyまたは
+yarn storybook
+Copy
+ブラウザで [http://localhost:6006](http://localhost:6006) を開いてStorybookを確認できます。
 
-To learn more about Next.js, take a look at the following resources:
+### Storybookのビルド
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+静的なStorybookをビルドするには：
+npm run build-storybook
+Copyまたは
+yarn build-storybook
+Copy
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 主な依存関係
 
-## Deploy on Vercel
+- Next.js: ^14.2.5
+- React: ^18
+- Chakra UI: ^2.8.2
+- SWR: ^2.2.5
+- React Hook Form: ^7.52.2
+- Recoil: ^0.7.7
+- Axios: ^1.7.4
+- Zod: ^3.23.8
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 開発依存関係
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- TypeScript: ^5
+- ESLint: ^8
+- Prettier: 3.3.3
+- Storybook: ^8.2.9
+
+## コードフォーマット
+
+コードのフォーマットを行うには：
+npm run format
+Copyまたは
+yarn format
+Copy
+
+## 型チェック
+
+TypeScriptの型チェックを実行するには：
+npm run typecheck
+Copyまたは
+yarn typecheck
+Copy
+
+## コントリビューション
+
+プロジェクトへの貢献に興味がある場合は、Issueを開くかプルリクエストを送ってください。
+
+## ライセンス
+
+このプロジェクトはプライベートであり、特定のライセンスの下では公開されていません。
+この更新版のREADMEには、NVMのインストール方法と使用方法に関する詳細な手順が含まれています。これにより、開発者がプロジェクトに適切なNode.jsバージョンを簡単に設定できるようになります。プロジェクトの具体的な要件に応じて、Node.jsのバージョンや他の詳細をさらに調整してください。
