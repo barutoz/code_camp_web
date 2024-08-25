@@ -10,11 +10,10 @@ export const ResultView: React.FC = () => {
   const router = useRouter()
   const { categoryId, id, questions } = router.query
 
-  // クエリパラメータが文字列であることを確認
   const categoryIdString = Array.isArray(categoryId)
     ? categoryId[0]
     : categoryId || ''
-  const idNumber = parseInt(Array.isArray(id) ? id[0] : id || '0', 10)
+  const idNumber = id ? parseInt(Array.isArray(id) ? id[0] : id, 10) : null
   const questionsObject =
     typeof questions === 'string' ? JSON.parse(questions) : {}
 

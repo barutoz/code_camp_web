@@ -13,7 +13,7 @@ import { motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
 export interface ResultViewPresenterProps {
-  id: number
+  id: number | null
   categoryId: string
   questions: Record<string, string>
 }
@@ -29,7 +29,7 @@ export const ResultViewPresenter: React.FC<ResultViewPresenterProps> = ({
   const accentColor = useColorModeValue('pink.500', 'pink.300')
 
   const handleRetry = () => {
-    router.push('/Index')
+    router.push('/')
   }
 
   // カテゴリーIDに基づいて音楽ジャンルを決定する関数
