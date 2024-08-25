@@ -39,46 +39,46 @@ export const SelectionFormPresenter: React.FC<
     {
       question: '音楽を聴くときに最も重視するのは？',
       options: [
-        { value: 'a', label: 'パワフルな音圧' },
-        { value: 'b', label: 'キャッチーなメロディ' },
-        { value: 'c', label: '革新的なサウンド' },
-        { value: 'd', label: 'DJ洗練された演奏技術をする' },
+        { value: 'A', label: 'パワフルな音圧' },
+        { value: 'B', label: 'キャッチーなメロディ' },
+        { value: 'C', label: '革新的なサウンド' },
+        { value: 'D', label: 'DJ洗練された演奏技術をする' },
       ],
     },
     {
       question: '好きなライブ・コンサートの雰囲気は？',
       options: [
-        { value: 'a', label: '熱狂的で激しい' },
-        { value: 'b', label: '一体感のある盛り上がり' },
-        { value: 'c', label: 'クールでスタイリッシュ' },
-        { value: 'd', label: '落ち着いた鑑賞' },
+        { value: 'A', label: '熱狂的で激しい' },
+        { value: 'B', label: '一体感のある盛り上がり' },
+        { value: 'C', label: 'クールでスタイリッシュ' },
+        { value: 'D', label: '落ち着いた鑑賞' },
       ],
     },
     {
       question: '音楽を聴く主な目的は？',
       options: [
-        { value: 'a', label: 'ストレス発散' },
-        { value: 'b', label: '気分を上げる' },
-        { value: 'c', label: '集中力を高める' },
-        { value: 'd', label: '癒しや瞑想' },
+        { value: 'A', label: 'ストレス発散' },
+        { value: 'B', label: '気分を上げる' },
+        { value: 'C', label: '集中力を高める' },
+        { value: 'D', label: '癒しや瞑想' },
       ],
     },
     {
       question: '好きな楽器は？',
       options: [
-        { value: 'a', label: 'ギター' },
-        { value: 'b', label: 'ピアノ' },
-        { value: 'c', label: 'シンセサイザー' },
-        { value: 'd', label: 'サックス' },
+        { value: 'A', label: 'ギター' },
+        { value: 'B', label: 'ピアノ' },
+        { value: 'C', label: 'シンセサイザー' },
+        { value: 'D', label: 'サックス' },
       ],
     },
     {
       question: '音楽の歴史で最も興味のある時代は？',
       options: [
-        { value: 'a', label: '70-80年代' },
-        { value: 'b', label: '90-2000年代' },
-        { value: 'c', label: '2010年代以降' },
-        { value: 'd', label: 'クラシック音楽の時代' },
+        { value: 'A', label: '70-80年代' },
+        { value: 'B', label: '90-2000年代' },
+        { value: 'C', label: '2010年代以降' },
+        { value: 'D', label: 'クラシック音楽の時代' },
       ],
     },
   ]
@@ -104,7 +104,7 @@ export const SelectionFormPresenter: React.FC<
     setIsSubmitting(true)
     try {
       const formattedData = {
-        question: questions.reduce(
+        questions: questions.reduce(
           (acc, _, index) => {
             acc[`q_${index + 1}`] = data[`question_${index}`]
             return acc
@@ -114,7 +114,10 @@ export const SelectionFormPresenter: React.FC<
       }
       console.log(formattedData)
 
-      const response = await axios.post('/api/submit-form', formattedData)
+      const response = await axios.post(
+        'http://127.0.0.1:8000/diagnosis/create',
+        formattedData
+      )
       console.log('フォーム送信成功:', response.data)
 
       toast({
