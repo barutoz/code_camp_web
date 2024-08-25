@@ -21,7 +21,7 @@ export default async function handler(
     try {
       // FastAPIバックエンドへのリクエスト
       const fastApiResponse = await axios.post(
-        'http://your-fastapi-backend-url/submit-form',
+        'http://127.0.0.1:8000/diagnosis/create',
         {
           question: question,
         }
