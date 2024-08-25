@@ -10,25 +10,16 @@ export const ResultView: React.FC = () => {
   const router = useRouter()
   const { categoryId, id, questions } = router.query
 
-  const categoryIdString = Array.isArray(categoryId)
+  const categoryIdNumber = Array.isArray(categoryId)
     ? categoryId[0]
     : categoryId || ''
   const idNumber = id ? parseInt(Array.isArray(id) ? id[0] : id, 10) : null
-  let questionsObject = {}
-  try {
-    questionsObject = typeof questions === 'string' ? JSON.parse(questions) : {}
-  } catch (error) {
-    console.error('questionsのパースに失敗しました:', error)
-  }
 
+  let questionsObject = {}
   return (
     <ChakraBaseProvider theme={theme}>
       <Container maxW="container.sm" flex="1">
-        <ResultViewPresenter
-          id={idNumber}
-          categoryId={categoryIdString}
-          questions={questionsObject}
-        />
+        <ResultViewPresenter id={idNumber} categoryId={categoryIdNumber} />
       </Container>
     </ChakraBaseProvider>
   )

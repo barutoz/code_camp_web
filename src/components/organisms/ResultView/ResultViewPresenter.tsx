@@ -15,13 +15,11 @@ import { useRouter } from 'next/router'
 export interface ResultViewPresenterProps {
   id: number | null
   categoryId: string
-  questions: Record<string, string>
 }
 
 export const ResultViewPresenter: React.FC<ResultViewPresenterProps> = ({
   id,
   categoryId,
-  questions,
 }) => {
   const router = useRouter()
   const bgColor = useColorModeValue('white', 'gray.900')
@@ -35,13 +33,13 @@ export const ResultViewPresenter: React.FC<ResultViewPresenterProps> = ({
   // カテゴリーIDに基づいて音楽ジャンルを決定する関数
   const getMusicGenre = (categoryId: string) => {
     const genres = {
-      category_1: 'ロック',
-      category_2: 'ポップ',
-      category_3: 'ジャズ',
-      category_4: 'クラシック',
-      category_5: 'エレクトロニック',
-      category_6: 'ヒップホップ',
-      category_7: 'R&B',
+      '1': 'ロック',
+      '2': 'ポップ',
+      '3': 'ジャズ',
+      '4': 'クラシック',
+      '5': 'エレクトロニック',
+      '6': 'ヒップホップ',
+      '7': 'R&B',
     }
     return genres[categoryId as keyof typeof genres] || '不明なジャンル'
   }
