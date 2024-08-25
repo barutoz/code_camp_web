@@ -14,8 +14,12 @@ export const ResultView: React.FC = () => {
     ? categoryId[0]
     : categoryId || ''
   const idNumber = id ? parseInt(Array.isArray(id) ? id[0] : id, 10) : null
-  const questionsObject =
-    typeof questions === 'string' ? JSON.parse(questions) : {}
+  let questionsObject = {}
+  try {
+    questionsObject = typeof questions === 'string' ? JSON.parse(questions) : {}
+  } catch (error) {
+    console.error('questionsのパースに失敗しました:', error)
+  }
 
   return (
     <ChakraBaseProvider theme={theme}>

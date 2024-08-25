@@ -11,7 +11,6 @@ const Page: NextPage<PageProps> = () => {
     <>
       <Head>
         <title>Musicality Finder | Result</title>
-        <link rel="icon" href="/favicon.ico" />
       </Head>
       <ResultView />
     </>
